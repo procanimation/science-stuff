@@ -1,1 +1,23 @@
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
 
+# Environment & Secrets (Security Protection)
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.crt
+*token*
+*credential*
+*secret*
+config/youtube_token.json
+client_secret*.json
+
+# Logs & Caches
+*.log
+__pycache__/
+node_modules/
