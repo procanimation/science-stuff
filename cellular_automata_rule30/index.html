@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elementary Cellular Automata (Rule 30 & Rule 110) - Procanimation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #030712;
+      color: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 28px;
+      background: linear-gradient(135deg, #fff, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+    p {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+    #canvas-container {
+      position: relative;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    }
+    canvas {
+      display: block;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+      background: #0f172a;
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      align-items: center;
+    }
+    button {
+      background: #1e293b;
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    button:hover {
+      background: #38bdf8;
+      color: #030712;
+    }
+    select {
+      background: #1e293b;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Elementary Cellular Automata</h1>
+    <p>Rule 30 (Chaos) · Rule 90 (Sierpinski) · Rule 110 (Turing Complete)</p>
+  </header>
+
+  <div id="canvas-container">
+    <canvas id="caCanvas" width="900" height="560"></canvas>
+  </div>
+
+  <div class="controls">
+    <button id="btnPlayPause">❚❚ Pause</button>
+    <button id="btnReset">↺ Reset</button>
+    <label style="color:#94a3b8; font-size:12px;">Rule:</label>
+    <select id="ruleSelect">
+      <option value="30">Rule 30 (Aperiodic Chaos)</option>
+      <option value="90">Rule 90 (Sierpinski Gasket)</option>
+      <option value="110">Rule 110 (Turing Complete)</option>
+      <option value="184">Rule 184 (Traffic Model)</option>
+    </select>
+    <label style="color:#94a3b8; font-size:12px;">Seed:</label>
+    <select id="seedSelect">
+      <option value="single">Single Center Pixel</option>
+      <option value="random">Random Noise (50%)</option>
+    </select>
+  </div>
+
+  <script src="sketch.js"></script>
+</body>
+</html>
