@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Hole Gravitational Lensing & Spacetime Curvature - Procanimation Science Stuff</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { width: 100%; height: 100%; overflow: hidden; background: #000; font-family: monospace; }
+    #canvas { width: 100vw; height: 100vh; display: block; cursor: grab; }
+    .hud {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      color: #94a3b8;
+      background: rgba(6, 10, 18, 0.85);
+      border: 1px solid rgba(77, 226, 208, 0.3);
+      border-radius: 8px;
+      padding: 12px 16px;
+      pointer-events: none;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .hud h1 { font-size: 14px; color: #fff; margin-bottom: 4px; font-weight: bold; }
+    .hud .cyan { color: #00f5d4; font-weight: bold; }
+    .hud .gold { color: #ffbe0b; font-weight: bold; }
+    .hud .pink { color: #f72585; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="hud">
+    <h1>SCHWARZSCHILD BLACK HOLE RAYMARCHER</h1>
+    <div>Metric: <span class="pink">ds² = -(1 - Rs/r)c²dt² + (1 - Rs/r)⁻¹dr² + r²dΩ²</span></div>
+    <div>Event Horizon: <span class="pink">Rs = 2GM / c²</span></div>
+    <div>Photon Sphere: <span class="gold">r = 1.5 Rs (Light orbits in circles)</span></div>
+    <div>Doppler Beaming: <span class="cyan">Approaching side blueshifted (left)</span></div>
+    <div style="color:#64748b; margin-top:4px;">Drag mouse to rotate 3D spacetime observer camera</div>
+  </div>
+  <canvas id="canvas"></canvas>
+  <script src="sketch.js"></script>
+</body>
+</html>
