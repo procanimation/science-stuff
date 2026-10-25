@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Double Pendulum Chaos Simulation — Procanimation Studio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #050810; color: #f0f6ff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; overflow: hidden; }
+    #canvas-container { width: 100vw; height: 100vh; position: absolute; top: 0; left: 0; z-index: 1; }
+    .hud { position: absolute; top: 20px; left: 24px; z-index: 10; background: rgba(10, 16, 28, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(0, 245, 212, 0.25); border-radius: 12px; padding: 18px 24px; max-width: 440px; box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+    h1 { font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .subtitle { font-size: 0.82rem; color: #00f5d4; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; }
+    p { font-size: 0.85rem; color: #94a3b8; line-height: 1.4; margin-bottom: 12px; }
+    .badge-group { display: flex; gap: 8px; margin-bottom: 14px; }
+    .badge { font-size: 0.72rem; padding: 4px 8px; border-radius: 6px; font-weight: 600; font-family: monospace; }
+    .badge-a { background: rgba(0, 245, 212, 0.15); color: #00f5d4; border: 1px solid rgba(0, 245, 212, 0.4); }
+    .badge-b { background: rgba(247, 37, 133, 0.15); color: #f72585; border: 1px solid rgba(247, 37, 133, 0.4); }
+    .btn-group { display: flex; gap: 8px; }
+    button { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; }
+    button:hover { background: #00f5d4; color: #050810; font-weight: 600; }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+</head>
+<body>
+  <div class="hud">
+    <h1>Double Pendulum Chaos</h1>
+    <div class="subtitle">Euler-Lagrange RK4 Simulation</div>
+    <p>Two pendulums launched with a microscopic angular separation of just <strong>0.001°</strong> demonstrate deterministic chaos and exponential Lyapunov divergence.</p>
+    <div class="badge-group">
+      <span class="badge badge-a">Pendulum 1 (Cyan)</span>
+      <span class="badge badge-b">Pendulum 2 (Magenta, +0.001°)</span>
+    </div>
+    <div class="btn-group">
+      <button onclick="isPaused = !isPaused; this.innerText = isPaused ? 'Resume' : 'Pause'">Pause</button>
+      <button onclick="p1.a1=Math.PI*0.92; p1.a2=Math.PI*0.92; p1.v1=0; p1.v2=0; p1.history=[]; p2.a1=Math.PI*0.92+0.000175; p2.a2=Math.PI*0.92; p2.v1=0; p2.v2=0; p2.history=[];">Reset (0.001°)</button>
+      <button onclick="showTrails = !showTrails; this.innerText = showTrails ? 'Hide Trails' : 'Show Trails'">Hide Trails</button>
+    </div>
+  </div>
+  <div id="canvas-container"></div>
+  <script src="sketch.js"></script>
+</body>
+</html>
