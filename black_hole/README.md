@@ -4,6 +4,8 @@
 
 ## Overview
 
+Watch the YouTube Short: [https://youtube.com/shorts/q678Qhyd8gE](https://youtube.com/shorts/q678Qhyd8gE)
+
 When viewing a black hole surrounded by an accretion disk, light from the rear plane of the disk bends both **over the north pole** and **under the south pole**, creating a distinctive dual-halo structure first modeled accurately by Kip Thorne and Double Negative for the film *Interstellar* (2014).
 
 ## Mathematical Formulation
