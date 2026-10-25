@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Double Slit Simulation - Open Source Procedural Physics</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #020617;
+      color: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px 16px;
+    }
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      color: #00f5d4;
+      text-align: center;
+    }
+    p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+      text-align: center;
+      max-width: 720px;
+    }
+    #canvas-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      height: 520px;
+      background: #030816;
+      border: 1px solid rgba(0, 245, 212, 0.3);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 245, 212, 0.1);
+    }
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 16px;
+      align-items: center;
+      justify-content: center;
+      max-width: 800px;
+      width: 100%;
+      padding: 16px;
+      background: #0f172a;
+      border-radius: 8px;
+      border: 1px solid #1e293b;
+    }
+    button {
+      background: #00f5d4;
+      color: #020617;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    button:hover {
+      background: #06d6a0;
+    }
+    .slider-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+    .footer {
+      margin-top: 24px;
+      font-size: 0.8rem;
+      color: #64748b;
+      text-align: center;
+    }
+    .footer a {
+      color: #00f5d4;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>⚛️ The Quantum Double Slit Experiment</h1>
+  <p>Simulation of wave-particle duality, de Broglie matter waves, and the observer effect (wavefunction collapse).</p>
+
+  <div id="canvas-container">
+    <canvas id="quantumCanvas"></canvas>
+  </div>
+
+  <div class="controls">
+    <button id="btnToggle">Turn Detector ON (Observe Slits)</button>
+    <div class="slider-group">
+      <label>Slit Separation: <span id="valDist">140 μm</span></label>
+      <input type="range" id="sliderDist" min="60" max="220" step="5" value="140">
+    </div>
+    <div class="slider-group">
+      <label>de Broglie Wavelength: <span id="valWave">28 nm</span></label>
+      <input type="range" id="sliderWave" min="16" max="44" step="2" value="28">
+    </div>
+  </div>
+
+  <div class="footer">
+    Developed by <a href="https://procanimation.github.io" target="_blank">Procanimation Studio</a> • Open Source Procedural Animation Series
+  </div>
+
+  <script src="sketch.js"></script>
+</body>
+</html>
