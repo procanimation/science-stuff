@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Heighway Dragon Curve - Procanimation Science</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #030612;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+      max-width: 720px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      background: linear-gradient(135deg, #f43f5e, #38bdf8, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    p.lead {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    #canvasContainer {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 50px rgba(244, 63, 94, 0.25);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+    }
+    canvas {
+      display: block;
+      background: #020309;
+    }
+    .hud {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      display: flex;
+      justify-content: space-between;
+      font-family: monospace;
+      font-size: 11px;
+      background: rgba(3, 7, 18, 0.85);
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      pointer-events: none;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+      background: rgba(15, 23, 42, 0.8);
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      align-items: center;
+    }
+    button, select {
+      background: #f43f5e;
+      color: #ffffff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    select {
+      background: #0b1120;
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The Heighway Dragon Curve</h1>
+    <p class="lead">NASA physicists 1966 paper-folding fractal, recursive L-system generation, and 4-dragon interlocking 2D plane tessellation.</p>
+  </header>
+
+  <div id="canvasContainer">
+    <canvas id="dragonCanvas" width="600" height="600"></canvas>
+    <div class="hud">
+      <div>Order: <span id="hudOrder" style="color:#f43f5e; font-weight:bold;">12</span></div>
+      <div>Segments: <span id="hudSegs" style="color:#f59e0b; font-weight:bold;">4,096</span></div>
+      <div>Tessellation: <span id="hudTess" style="color:#38bdf8; font-weight:bold;">4x Quad</span></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label style="font-size:12px;">Order:</label>
+    <input type="range" id="rngOrder" min="1" max="15" value="12">
+    <span id="txtOrder" style="font-family:monospace; font-size:11px; color:#f43f5e;">12</span>
+
+    <label style="font-size:12px;">Angle:</label>
+    <input type="range" id="rngAngle" min="30" max="150" value="90">
+    <span id="txtAngle" style="font-family:monospace; font-size:11px; color:#38bdf8;">90°</span>
+
+    <select id="selTess">
+      <option value="1">1x Single Dragon</option>
+      <option value="2">2x Twin Dragon</option>
+      <option value="4" selected>4x Quad Tessellation</option>
+    </select>
+  </div>
+
+  <script src="sketch.js"></script>
+</body>
+</html>
