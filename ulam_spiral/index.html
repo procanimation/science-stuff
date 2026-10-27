@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Ulam Spiral & Prime Constellations - Procanimation Studio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #020617;
+      color: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 26px;
+      color: #00f5d4;
+      letter-spacing: 1px;
+    }
+    p.subtitle {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-top: 6px;
+    }
+    #canvas-container {
+      position: relative;
+      border: 1px solid rgba(0, 245, 212, 0.3);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+    .controls {
+      display: flex;
+      gap: 16px;
+      margin-top: 18px;
+      background: #0f172a;
+      padding: 14px 20px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    button {
+      background: #00f5d4;
+      color: #020617;
+      font-weight: bold;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #38bdf8; }
+    button.active { background: #ffb703; color: #000; }
+    label { font-size: 13px; color: #94a3b8; display: flex; align-items: center; gap: 8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The Ulam Spiral & Prime Constellations</h1>
+    <p class="subtitle">Stanislaw Ulam (1963) · Prime Number Diagonals & Euler's Lucky Polynomial</p>
+  </header>
+
+  <div id="canvas-container">
+    <canvas id="simCanvas" width="800" height="600"></canvas>
+  </div>
+
+  <div class="controls">
+    <button id="btnMode">Spiral Mode: Square</button>
+    <button id="btnEuler" class="active">Highlight Euler ($n^2+n+41$)</button>
+    <label>
+      Max Integers ($N$):
+      <input type="range" id="sliderN" min="1000" max="60000" step="1000" value="25000">
+      <span id="valN" style="color:#00f5d4; font-weight:bold;">25,000</span>
+    </label>
+    <label>
+      Zoom:
+      <input type="range" id="sliderZoom" min="0.5" max="3.0" step="0.1" value="1.2">
+      <span id="valZoom" style="color:#f72585; font-weight:bold;">1.2x</span>
+    </label>
+  </div>
+
+  <script src="sketch.js"></script>
+</body>
+</html>
